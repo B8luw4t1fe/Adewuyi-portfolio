@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adewuyi Boluwatife Adebukola — Able Seafarer Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#081722;
+    --navy-panel:#0F2836;
+    --navy-panel-2:#132F3F;
+    --brass:#C79A3E;
+    --brass-soft:#8E7031;
+    --rope:#ECE3CE;
+    --rope-dim:#B9AF97;
+    --rust:#9C3B2E;
+    --teal:#3E7A7E;
+    --line:rgba(236,227,206,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy-deep);
+    color:var(--rope);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 6vw;
+    background:linear-gradient(180deg, rgba(8,23,34,0.95), rgba(8,23,34,0));
+    backdrop-filter:blur(2px);
+  }
+  .nav-mark{
+    font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:0.08em;
+    font-size:15px; color:var(--rope);
+  }
+  .nav-mark span{color:var(--brass);}
+  .nav-links{display:flex; gap:28px; font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase;}
+  .nav-links a{opacity:0.75; text-decoration:none; transition:opacity 0.2s, color 0.2s; border-bottom:1px solid transparent; padding-bottom:3px;}
+  .nav-links a:hover{opacity:1; color:var(--brass); border-color:var(--brass);}
+  @media(max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:120px 6vw 80px;
+    overflow:hidden;
+  }
+  .chart-lines{
+    position:absolute; inset:0; z-index:0; opacity:0.35;
+    pointer-events:none;
+  }
+  .hero-inner{ position:relative; z-index:2; max-width:980px; }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.18em;
+    color:var(--brass); text-transform:uppercase; margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:''; width:26px; height:1px; background:var(--brass);
+  }
+  h1.name{
+    font-size:clamp(40px, 7vw, 84px);
+    font-weight:700; line-height:0.98; color:var(--rope);
+    margin-bottom:18px;
+  }
+  h1.name em{ font-style:normal; color:var(--brass); }
+  .role-line{
+    font-size:clamp(16px,2.4vw,22px); color:var(--rope-dim);
+    max-width:640px; margin-bottom:36px; font-weight:400;
+    font-family:'Inter',sans-serif; text-transform:none; letter-spacing:0;
+  }
+  .hero-cta{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px;}
+  .btn{
+    font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:0.08em;
+    text-transform:uppercase; text-decoration:none;
+    padding:14px 26px; border-radius:2px; transition:all 0.2s;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{ background:var(--brass); color:var(--navy-deep); font-weight:600; }
+  .btn-primary:hover{ background:#DDB255; }
+  .btn-ghost{ border:1px solid var(--line); color:var(--rope); }
+  .btn-ghost:hover{ border-color:var(--brass); color:var(--brass); }
+
+  .manifest-strip{
+    display:flex; gap:0; border-top:1px solid var(--line); flex-wrap:wrap;
+  }
+  .manifest-item{
+    flex:1; min-width:140px; padding:18px 22px 0; border-right:1px solid var(--line);
+  }
+  .manifest-item:last-child{border-right:none;}
+  .manifest-num{ font-family:'Oswald',sans-serif; font-size:28px; color:var(--brass); font-weight:600; }
+  .manifest-label{ font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:var(--rope-dim); text-transform:uppercase; margin-top:4px;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:110px 6vw; position:relative; }
+  .section-head{ margin-bottom:56px; max-width:640px; }
+  .section-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.18em;
+    color:var(--brass); text-transform:uppercase; margin-bottom:14px;
+  }
+  h2.section-title{ font-size:clamp(28px,4vw,42px); color:var(--rope); font-weight:600; }
+  .section-sub{ color:var(--rope-dim); margin-top:14px; font-size:16px; max-width:560px; }
+
+  /* ---------- ABOUT ---------- */
+  #about{ background:var(--navy-panel); }
+  .about-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:60px; align-items:start; }
+  @media(max-width:800px){ .about-grid{grid-template-columns:1fr;} }
+  .about-text p{ color:var(--rope-dim); font-size:16.5px; margin-bottom:18px; max-width:520px; }
+  .about-text strong{ color:var(--rope); font-weight:600; }
+  .id-plate{
+    border:1px solid var(--line); padding:28px; background:var(--navy-panel-2);
+    position:relative;
+  }
+  .id-plate::before{
+    content:'CREW ID'; position:absolute; top:-10px; left:22px; background:var(--navy-panel);
+    padding:0 8px; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.15em; color:var(--brass);
+  }
+  .id-row{ display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px; }
+  .id-row:last-child{ border-bottom:none; }
+  .id-key{ color:var(--rope-dim); font-family:'IBM Plex Mono',monospace; font-size:12px; }
+  .id-val{ color:var(--rope); font-weight:500; text-align:right; }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cert-card{ background:var(--navy-deep); padding:32px 28px; position:relative; min-height:220px; display:flex; flex-direction:column; }
+  .seal{
+    position:absolute; top:24px; right:24px; width:56px; height:56px; border-radius:50%;
+    border:2px solid var(--rust); display:flex; align-items:center; justify-content:center;
+    transform:rotate(-8deg); opacity:0.9;
+  }
+  .seal-inner{
+    width:44px; height:44px; border-radius:50%; border:1px dashed var(--rust);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:8px; color:var(--rust); text-align:center; letter-spacing:0.02em;
+  }
+  .cert-name{ font-family:'Oswald',sans-serif; font-size:19px; color:var(--rope); font-weight:600; max-width:75%; margin-bottom:10px; text-transform:none; letter-spacing:0.01em;}
+  .cert-issuer{ font-size:13.5px; color:var(--rope-dim); margin-bottom:6px; }
+  .cert-date{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--brass); letter-spacing:0.06em; margin-top:auto; padding-top:14px; }
+  .cert-detail{ font-size:12.5px; color:var(--rope-dim); margin-top:10px; line-height:1.5; }
+
+  /* ---------- EXPERIENCE / LOG ---------- */
+  #experience{ background:var(--navy-panel); }
+  .log{ border-left:1px solid var(--line); padding-left:36px; max-width:760px; }
+  .log-entry{ position:relative; padding-bottom:52px; }
+  .log-entry:last-child{ padding-bottom:0; }
+  .log-entry::before{
+    content:''; position:absolute; left:-41px; top:4px; width:9px; height:9px;
+    background:var(--brass); border-radius:50%; box-shadow:0 0 0 4px var(--navy-panel);
+  }
+  .log-date{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--brass); letter-spacing:0.08em; margin-bottom:8px; }
+  .log-role{ font-family:'Oswald',sans-serif; font-size:22px; color:var(--rope); font-weight:600; margin-bottom:4px; text-transform:none; }
+  .log-org{ font-size:14px; color:var(--rope-dim); font-style:italic; margin-bottom:14px; }
+  .log-duties{ list-style:none; }
+  .log-duties li{ font-size:14.5px; color:var(--rope-dim); padding-left:18px; position:relative; margin-bottom:8px; }
+  .log-duties li::before{ content:'—'; position:absolute; left:0; color:var(--teal); }
+
+  /* ---------- EDUCATION + SKILLS ---------- */
+  .split{ display:grid; grid-template-columns:1fr 1fr; gap:70px; }
+  @media(max-width:800px){ .split{ grid-template-columns:1fr; gap:56px; } }
+  .edu-item{ margin-bottom:30px; }
+  .edu-item:last-child{ margin-bottom:0; }
+  .edu-degree{ font-family:'Oswald',sans-serif; font-size:18px; color:var(--rope); font-weight:600; text-transform:none; }
+  .edu-school{ font-size:14px; color:var(--rope-dim); font-style:italic; margin:4px 0 6px; }
+  .edu-date{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--brass); }
+  .grades{ font-size:12px; color:var(--rope-dim); margin-top:8px; line-height:1.7; }
+
+  .tag-cloud{ display:flex; flex-wrap:wrap; gap:10px; }
+  .tag{
+    font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em;
+    padding:9px 16px; border:1px solid var(--line); color:var(--rope-dim);
+    transition:all 0.2s;
+  }
+  .tag:hover{ border-color:var(--brass); color:var(--brass); }
+
+  /* ---------- CONTACT ---------- */
+  #contact{
+    background:var(--navy-panel-2);
+    text-align:center;
+    padding-bottom:60px;
+  }
+  #contact .section-head{ margin-left:auto; margin-right:auto; }
+  .contact-links{ display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:36px; }
+  footer{
+    text-align:center; padding:34px 6vw; font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px; color:var(--rope-dim); border-top:1px solid var(--line); letter-spacing:0.04em;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark">A.B. <span>ADEBUKOLA</span></div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="chart-lines" viewBox="0 0 1000 700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-50,600 C150,550 300,650 500,580 C700,510 850,600 1050,540" stroke="#C79A3E" stroke-width="1" fill="none"/>
+    <path d="M-50,500 C150,450 300,540 500,470 C700,400 850,480 1050,430" stroke="#3E7A7E" stroke-width="1" fill="none"/>
+    <path d="M-50,650 C200,610 350,690 550,630 C750,580 900,650 1050,610" stroke="#ECE3CE" stroke-width="0.6" fill="none"/>
+    <path d="M-50,420 C180,380 330,450 520,390 C720,330 860,400 1050,360" stroke="#8E7031" stroke-width="0.6" fill="none"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Deck Rating &middot; STCW Certified &middot; Available Now</div>
+    <h1 class="name">Adewuyi<br>Boluwatife <em>Adebukola</em></h1>
+    <p class="role-line">Able Seafarer Deck with STCW Basic Safety Training, tanker cargo and survival craft proficiency, and 14 months of live dockyard experience at Apapa Seaport under the Nigerian Ports Authority.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="mailto:Adewuyimarvelous7@gmail.com">Get In Touch</a>
+      <a class="btn btn-ghost" href="#certifications">View Certifications</a>
+    </div>
+  </div>
+  <div class="manifest-strip hero-inner">
+    <div class="manifest-item"><div class="manifest-num">05</div><div class="manifest-label">STCW &amp; Deck Certs</div></div>
+    <div class="manifest-item"><div class="manifest-num">14</div><div class="manifest-label">Months Dockyard Ops</div></div>
+    <div class="manifest-item"><div class="manifest-num">NPA</div><div class="manifest-label">Apapa Seaport</div></div>
+    <div class="manifest-item"><div class="manifest-num">LOS</div><div class="manifest-label">Based in Lagos</div></div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-tag">Personal Statement</div>
+      <p>I'm a <strong>safety-conscious mariner</strong> with STCW Basic Safety Training and specialised deck certifications, plus over a year of hands-on dockyard experience gained at Apapa Seaport under the Nigerian Ports Authority.</p>
+      <p>I'm comfortable with <strong>mooring, cargo handling, equipment maintenance</strong>, and working as part of a disciplined crew under officer supervision. Physically fit, a capable swimmer, and reliable in fast-paced, safety-critical environments.</p>
+      <p>I'm looking to bring strong seamanship fundamentals and a hardworking attitude to an Able Seafarer Deck role.</p>
+    </div>
+    <div class="id-plate reveal">
+      <div class="id-row"><span class="id-key">RATING</span><span class="id-val">Able Seafarer Deck</span></div>
+      <div class="id-row"><span class="id-key">BASE</span><span class="id-val">Surulere, Lagos, NG</span></div>
+      <div class="id-row"><span class="id-key">PHONE</span><span class="id-val">+234 816 853 1342</span></div>
+      <div class="id-row"><span class="id-key">EMAIL</span><span class="id-val">Adewuyimarvelous7@gmail.com</span></div>
+      <div class="id-row"><span class="id-key">LANGUAGES</span><span class="id-val">English</span></div>
+      <div class="id-row"><span class="id-key">SWIMMING</span><span class="id-val">Amateur, water-confident</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="section-head reveal">
+    <div class="section-tag">Maritime Certifications</div>
+    <h2 class="section-title">Certified &amp; Sea-Ready</h2>
+    <p class="section-sub">All NIMASA-approved training completed at Coastal Maritime Academy, Lagos, and the Federal College of Fisheries &amp; Marine Technology.</p>
+  </div>
+  <div class="cert-grid reveal">
+    <div class="cert-card">
+      <div class="seal"><div class="seal-inner">NIMASA<br>APPROVED</div></div>
+      <div class="cert-name">STCW Basic Safety Training</div>
+      <div class="cert-issuer">Coastal Maritime Academy, Lagos</div>
+      <div class="cert-detail">Personal Survival at Sea &middot; Fire Prevention &amp; Fire Fighting &middot; Elementary First Aid &middot; Personal Safety &amp; Social Responsibilities</div>
+      <div class="cert-date">MARCH 2025</div>
+    </div>
+    <div class="cert-card">
+      <div class="seal"><div class="seal-inner">NIMASA<br>APPROVED</div></div>
+      <div class="cert-name">Proficiency in Survival Craft &amp; Rescue Boats</div>
+      <div class="cert-issuer">Coastal Maritime Academy, Lagos</div>
+      <div class="cert-detail">Other than fast rescue boats &middot; STCW Reg. VI/2 &amp; Section A-VI/2</div>
+      <div class="cert-date">MARCH 2025</div>
+    </div>
+    <div class="cert-card">
+      <div class="seal"><div class="seal-inner">NIMASA<br>APPROVED</div></div>
+      <div class="cert-name">Basic Oil &amp; Chemical Tanker Cargo Operations</div>
+      <div class="cert-issuer">Coastal Maritime Academy, Lagos</div>
+      <div class="cert-detail">STCW Table A-V/1-1, STCW Convention 2010</div>
+      <div class="cert-date">MARCH 2025</div>
+    </div>
+    <div class="cert-card">
+      <div class="seal"><div class="seal-inner">ISPS<br>CODE</div></div>
+      <div class="cert-name">Crew Security Awareness (ISPS Code)</div>
+      <div class="cert-issuer">Coastal Maritime Academy, Lagos</div>
+      <div class="cert-detail">Security Awareness Training for Seafarers, Section A-VI/6</div>
+      <div class="cert-date">MARCH 2025</div>
+    </div>
+    <div class="cert-card">
+      <div class="seal"><div class="seal-inner">FCFMT<br>LAGOS</div></div>
+      <div class="cert-name">Marine Engineering Assistant Course</div>
+      <div class="cert-issuer">Federal College of Fisheries &amp; Marine Technology</div>
+      <div class="cert-detail">Full course of instruction, Victoria Island, Lagos</div>
+      <div class="cert-date">APR – OCT 2024</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head reveal">
+    <div class="section-tag">Sea Time &amp; Work Log</div>
+    <h2 class="section-title">Experience</h2>
+  </div>
+  <div class="log reveal">
+    <div class="log-entry">
+      <div class="log-date">NOV 2024 — FEB 2026</div>
+      <div class="log-role">Deck &amp; Dockyard Intern</div>
+      <div class="log-org">Lagos Channel Management (LCM), Nigerian Ports Authority — Apapa Seaport Dockyard, Lagos</div>
+      <ul class="log-duties">
+        <li>Carried out dockyard operations and general seamanship duties as part of a supervised deck team</li>
+        <li>Assisted with mooring operations, ensuring safe and efficient berthing/unberthing of vessels</li>
+        <li>Performed routine deck equipment maintenance to keep gear in safe, serviceable condition</li>
+        <li>Supported basic engine maintenance tasks alongside engineering staff</li>
+        <li>Worked under direct officer supervision, following instructions and safety procedures accurately</li>
+      </ul>
+    </div>
+    <div class="log-entry">
+      <div class="log-date">ONGOING</div>
+      <div class="log-role">Livestream Operator</div>
+      <div class="log-org">Freelance / Media Production, Lagos</div>
+      <ul class="log-duties">
+        <li>Operated live streaming equipment and software for events, ensuring smooth, uninterrupted broadcasts</li>
+        <li>Worked to tight timings under pressure — reliability and focus transferable to watchkeeping duties at sea</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="split">
+    <div class="reveal">
+      <div class="section-tag">Education</div>
+      <h2 class="section-title" style="margin-bottom:32px;">Academic Record</h2>
+      <div class="edu-item">
+        <div class="edu-degree">National Diploma, Mass Communication</div>
+        <div class="edu-school">Lagos State Polytechnic</div>
+        <div class="edu-date">2022 — 2024</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">WASSCE</div>
+        <div class="edu-school">Seylek City College, Ebute Metta East, Lagos</div>
+        <div class="edu-date">2020</div>
+        <div class="grades">Mathematics (B3) &middot; English (B3) &middot; Data Processing (B3) &middot; Literature in English (B3) &middot; Civic Education (C6) &middot; Economics (C6) &middot; CRS (C5) &middot; Government (D7)</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">Additional Skills</div>
+      <h2 class="section-title" style="margin-bottom:32px;">On Deck &amp; Off</h2>
+      <div class="tag-cloud">
+        <span class="tag">Mooring Operations</span>
+        <span class="tag">Deck Maintenance</span>
+        <span class="tag">Cargo Handling</span>
+        <span class="tag">Swimming (Amateur)</span>
+        <span class="tag">Physical Fitness</span>
+        <span class="tag">Teamwork Under Supervision</span>
+        <span class="tag">Safety Discipline</span>
+        <span class="tag">Technical Equipment Ops</span>
+        <span class="tag">English Language</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head reveal">
+    <div class="section-tag">Get In Touch</div>
+    <h2 class="section-title">Ready to Join Your Crew</h2>
+    <p class="section-sub">Open to Able Seafarer Deck positions. Available for immediate contact regarding sea-going or dockyard opportunities.</p>
+  </div>
+  <div class="contact-links reveal">
+    <a class="btn btn-primary" href="mailto:Adewuyimarvelous7@gmail.com">Adewuyimarvelous7@gmail.com</a>
+    <a class="btn btn-ghost" href="tel:+2348168531342">+234 816 853 1342</a>
+  </div>
+</section>
+
+<footer>
+  ADEWUYI BOLUWATIFE ADEBUKOLA &middot; SURULERE, LAGOS, NIGERIA &middot; ABLE SEAFARER DECK
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
